@@ -1,11 +1,24 @@
 <script>
-    import { onMount } from 'svelte';
     import Maildo from './lib/Maildo.svelte';
+    import { onMount, setContext } from 'svelte';
+    import { writable } from 'svelte/store';
+
+    /** @type {import('svelte/store').Writable<Element>}*/
+    const selectedMailto = writable(null);
+    setContext('selectedMailto', selectedMailto);
     
     onMount(() => {
         const mailtos = document.querySelectorAll('a[href^="mailto:"]');
-        console.log(mailtos);
+        
+        mailtos.forEach((mailto) => {
+            mailto.addEventListener('click', (event) => {
+                event.preventDefault();
+                $selectedMailto = mailto;
+            });
+        });
     });
 </script>
 
-<Maildo />
+{#if $selectedMailto}
+    <Maildo />
+{/if}
