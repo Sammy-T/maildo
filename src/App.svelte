@@ -13,6 +13,7 @@
         mailtos.forEach((mailto) => {
             mailto.addEventListener('click', (event) => {
                 event.preventDefault();
+                
                 $selectedMailto = mailto;
             });
         });
