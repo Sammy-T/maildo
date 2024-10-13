@@ -182,7 +182,7 @@
         </section>
 
         <footer>
-            <small><a href="#github">maildo</a></small>
+            <small><a href="https://github.com/Sammy-T/maildo" target="_blank">maildo</a></small>
         </footer>
     </article>
 </dialog>
