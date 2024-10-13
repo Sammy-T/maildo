@@ -116,7 +116,7 @@
     function openDefault() {
         const mailtoUrl = getMailtoUrl();
 
-        window.open(mailtoUrl.toString());
+        window.open(mailtoUrl.toString(), '_self');
 
         close();
     }
