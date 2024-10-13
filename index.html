@@ -16,13 +16,28 @@
     <main style="padding: 1rem;">
       <h1>Maildo</h1>
       
-      <a href="mailto:maildo@example.com">maildo@example.com</a><br>
+      <a href="mailto:maildo@example.com">
+        mailto:maildo@example.com
+      </a><br>
       <a href="mailto:maildo@example.com?subject=hello%20world&body=bonjour monde">
-        maildo@example.com?subject=hello%20world&body=bonjour monde
+        mailto:maildo@example.com?subject=Hello%20World&body=bonjour monde
       </a><br>
       <a href="mailto:maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com">
-        maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com
-      </a>
+        mailto:maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com
+      </a><br>
+
+      <hr>
+
+      <a href="#maildo" data-address="maildo" data-domain="example.com">
+        maildo@example.com
+      </a><br>
+      <a href="#maildo" 
+        data-address="maildo" data-domain="example.com" 
+        data-cc-address="maildo2" data-cc-domain="example.com"
+        data-bcc-address="maildo3" data-bcc-domain="example.com"
+        data-subject="Hello World" data-body="Bonjour Monde.">
+        maildo@example.com
+      </a><br>
     </main>
   </body>
 </html>

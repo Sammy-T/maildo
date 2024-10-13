@@ -1,6 +1,7 @@
 <script>
     import { getContext, onMount } from 'svelte';
 
+    /** @type {import('svelte/store').Writable<HTMLAnchorElement>} */
     const selectedMailto = getContext('selectedMailto');
 
     let address = '';
@@ -9,6 +10,9 @@
     let subject = '';
     let body = '';
 
+    /**
+     * Parses the email data from the mailto url.
+     */
     function parseUrl() {
         const url = new URL($selectedMailto.href);
         const { searchParams } = url;
@@ -21,6 +25,21 @@
         body = searchParams.get('body');
     }
 
+    /**
+     * Parses the email data from the anchor element's data attributes.
+     */
+    function parseData() {
+        const { dataset } = $selectedMailto;
+
+        address = (dataset.address && dataset.domain) ? `${dataset.address}@${dataset.domain}` : '';
+
+        cc = (dataset.ccAddress && dataset.ccDomain) ? `${dataset.ccAddress}@${dataset.ccDomain}` : '';
+        bcc = (dataset.bccAddress && dataset.bccDomain) ? `${dataset.bccAddress}@${dataset.bccDomain}` : '';
+
+        subject = dataset.subject;
+        body = dataset.body;
+    }
+ 
     function cancel() {
         $selectedMailto = null;
     }
@@ -29,7 +48,7 @@
         if($selectedMailto.href.startsWith('mailto:')) {
             parseUrl();
         } else {
-            //// TODO: parse data attr
+            parseData();
         }
     });
 </script>
