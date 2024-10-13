@@ -8,7 +8,7 @@
     setContext('selectedMailto', selectedMailto);
     
     onMount(() => {
-        const mailtos = document.querySelectorAll('a[href^="mailto:"], a[href="#maildo"]');
+        const mailtos = document.querySelectorAll('a[href^="mailto:"], a[href="#maildo"], a.maildo');
         
         mailtos.forEach((mailto) => {
             mailto.addEventListener('click', (event) => {
