@@ -73,7 +73,23 @@
 
         const gmailUrl = 'https://mail.google.com/mail/?extsrc=mailto&url=' + encodeURIComponent(mailtoUrl);
 
-        window.open(gmailUrl, '_blank');
+        window.open(gmailUrl, '_blank', 'noopener, noreferrer');
+
+        close();
+    }
+
+    function openOutlook() {
+        const params = new URLSearchParams();
+        params.set('path', '/mail/action/compose');
+
+        if(address) params.set('to', address);
+        if(subject) params.set('subject', subject);
+        if(body) params.set('body', body);
+
+        const url = new URL('https://outlook.live.com/owa/');
+        url.search = params.toString();
+
+        window.open(url.toString(), '_blank', 'noopener, noreferrer');
 
         close();
     }
@@ -120,7 +136,7 @@
 
         <section>
             <a href="#gmail" on:click|preventDefault={openGmail}>open in Gmail</a>
-            <a href="#outlook" on:click|preventDefault>open in Outlook</a>
+            <a href="#outlook" on:click|preventDefault={openOutlook}>open in Outlook</a>
             <a href="#yahoo" on:click|preventDefault>open in Yahoo Mail</a>
             <a href="#default" on:click|preventDefault>open default</a>
             <a href="#copy" on:click|preventDefault>copy</a>
