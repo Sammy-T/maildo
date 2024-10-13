@@ -7,13 +7,15 @@
     /** @type {import('svelte/store').Writable<HTMLAnchorElement>} */
     const selectedMailto = getContext('selectedMailto');
 
+    let type = '';
+
     let address = '';
     let cc = '';
     let bcc = '';
     let subject = '';
     let body = '';
 
-    let type = '';
+    let copied = false;
 
     /**
      * Parses the email data from the mailto url.
@@ -118,6 +120,18 @@
 
         close();
     }
+
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(address);
+
+            copied = true;
+
+            setTimeout(close, 1500);
+        } catch(error) {
+            console.error('Unable to copy to clipboard.', error);
+        }
+    }
  
     function close() {
         $selectedMailto = null;
@@ -164,7 +178,7 @@
             <a href="#outlook" on:click|preventDefault={openOutlook}>open in Outlook</a>
             <a href="#yahoo" on:click|preventDefault={openYahoo}>open in Yahoo Mail</a>
             <a href="#default" on:click|preventDefault={openDefault}>open default</a>
-            <a href="#copy" on:click|preventDefault>copy</a>
+            <a href="#copy" on:click|preventDefault={copy}>{copied ? 'copied' : 'copy'}</a>
         </section>
 
         <footer>
