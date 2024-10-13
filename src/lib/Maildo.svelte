@@ -45,13 +45,13 @@
         body = dataset.body;
     }
 
-    function openGmail() {
-        let mailtoUrl;
-
+    /**
+     * A helper to get the mailto url.
+     */
+    function getMailtoUrl() {
         switch(type) {
             case TYPE_URL:
-                mailtoUrl = $selectedMailto.href;
-                break;
+                return $selectedMailto.href;
 
             case TYPE_DATA:
                 const params = new URLSearchParams();
@@ -63,13 +63,16 @@
                 const url = new URL(`mailto:${address}`);
                 url.search = params.toString();
 
-                mailtoUrl = url.toString();
-                break;
+                return url.toString();
 
             default:
                 console.error(`Invalid mailto type: ${type}`);
-                return;
+                return '';
         }
+    }
+
+    function openGmail() {
+        const mailtoUrl = getMailtoUrl();
 
         const gmailUrl = 'https://mail.google.com/mail/?extsrc=mailto&url=' + encodeURIComponent(mailtoUrl);
 
@@ -104,6 +107,14 @@
         url.search = params.toString();
 
         window.open(url.toString(), '_blank', 'noopener, noreferrer');
+
+        close();
+    }
+
+    function openDefault() {
+        const mailtoUrl = getMailtoUrl();
+
+        window.open(mailtoUrl.toString());
 
         close();
     }
@@ -152,7 +163,7 @@
             <a href="#gmail" on:click|preventDefault={openGmail}>open in Gmail</a>
             <a href="#outlook" on:click|preventDefault={openOutlook}>open in Outlook</a>
             <a href="#yahoo" on:click|preventDefault={openYahoo}>open in Yahoo Mail</a>
-            <a href="#default" on:click|preventDefault>open default</a>
+            <a href="#default" on:click|preventDefault={openDefault}>open default</a>
             <a href="#copy" on:click|preventDefault>copy</a>
         </section>
 
