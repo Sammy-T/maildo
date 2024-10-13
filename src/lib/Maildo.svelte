@@ -93,6 +93,20 @@
 
         close();
     }
+
+    function openYahoo() {
+        const params = new URLSearchParams();
+        if(address) params.set('to', address);
+        if(subject) params.set('subject', subject);
+        if(body) params.set('body', body);
+
+        const url = new URL('https://compose.mail.yahoo.com');
+        url.search = params.toString();
+
+        window.open(url.toString(), '_blank', 'noopener, noreferrer');
+
+        close();
+    }
  
     function close() {
         $selectedMailto = null;
@@ -137,7 +151,7 @@
         <section>
             <a href="#gmail" on:click|preventDefault={openGmail}>open in Gmail</a>
             <a href="#outlook" on:click|preventDefault={openOutlook}>open in Outlook</a>
-            <a href="#yahoo" on:click|preventDefault>open in Yahoo Mail</a>
+            <a href="#yahoo" on:click|preventDefault={openYahoo}>open in Yahoo Mail</a>
             <a href="#default" on:click|preventDefault>open default</a>
             <a href="#copy" on:click|preventDefault>copy</a>
         </section>
