@@ -3,16 +3,15 @@
 
     const selectedMailto = getContext('selectedMailto');
 
-    function cancel(event) {
-        if(event.currentTarget !== event.target) return;
 
+    function cancel() {
         $selectedMailto = null;
     }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<dialog open on:click={cancel}>
+<dialog open on:click|self={cancel}>
     <article>
         <h6>hello@example.com</h6>
 
