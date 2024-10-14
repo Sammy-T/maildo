@@ -19,6 +19,7 @@
     a {
         color: var(--maildo-link-color);
         text-decoration: inherit;
+        font-weight: normal;
     }
 
     a:hover {
