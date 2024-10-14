@@ -1,5 +1,5 @@
 <script>
-    import Maildo from './lib/Maildo.svelte';
+    import Mailto from './lib/Mailto.svelte';
     import { onMount, setContext } from 'svelte';
     import { writable } from 'svelte/store';
 
@@ -24,5 +24,5 @@
 </script>
 
 {#if $selectedMailto}
-    <Maildo />
+    <Mailto />
 {/if}
