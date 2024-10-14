@@ -1,12 +1,17 @@
 /* @import '@picocss/pico/css/pico.min.css'; */
 
 #maildo-app {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color-scheme: light dark;
+
     --maildo-spacing: 1rem;
     --maildo-modal-spacing-v: var(--maildo-spacing);
     --maildo-modal-spacing-h: calc(var(--maildo-spacing) * 2);
     --maildo-border-radius: 0.6rem;
-
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --maildo-modal-bg-color: light-dark(#fff, #181c25);
+    --maildo-color: light-dark(#5b5d62, #c2c7d0);
+    --maildo-link-color: #646cff;
+    --maildo-link-hover-color: light-dark(#62659f, #535bf2);
 
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
@@ -14,13 +19,12 @@
     }
 
     a {
-        /* font-weight: 500; */
-        color: #646cff;
+        color: var(--maildo-link-color);
         text-decoration: inherit;
     }
 
     a:hover {
-        color: #535bf2;
+        color: var(--maildo-link-hover-color);
     }
 
     & dialog {
@@ -37,7 +41,7 @@
         align-items: center;
         justify-content: center;
         background-color: #08090abf;
-        color: #c2c7d0;
+        color: var(--maildo-color);
         backdrop-filter: blur(0.05rem);
         -webkit-backdrop-filter: blur(0.05rem);
         z-index: 999;
@@ -49,7 +53,7 @@
             overflow: auto;
             padding: var(--maildo-modal-spacing-v) var(--maildo-modal-spacing-h);
             border-radius: var(--maildo-border-radius);
-            background-color: #181c25;
+            background-color: var(--maildo-modal-bg-color);
             box-shadow: 0.15rem 0.2rem 0.2rem 0.05rem #0a0a0aa3;
 
             & footer {
