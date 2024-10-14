@@ -196,24 +196,3 @@
         </footer>
     </article>
 </dialog>
-
-<style>
-    h4, p {
-        text-align: center;
-    }
-
-    a > strong {
-        font-weight: 500;
-    }
-
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: calc(var(--maildo-spacing) * 0.25) 0;
-    }
-
-    footer {
-        text-align: center;
-    }
-</style>
