@@ -174,11 +174,21 @@
         </p>
 
         <section>
-            <a href="#gmail" on:click|preventDefault={openGmail}>open in Gmail</a>
-            <a href="#outlook" on:click|preventDefault={openOutlook}>open in Outlook</a>
-            <a href="#yahoo" on:click|preventDefault={openYahoo}>open in Yahoo Mail</a>
-            <a href="#default" on:click|preventDefault={openDefault}>open default</a>
-            <a href="#copy" on:click|preventDefault={copy}>{copied ? 'copied' : 'copy'}</a>
+            <a href="#gmail" on:click|preventDefault={openGmail}>
+                open in <strong>Gmail</strong>
+            </a>
+            <a href="#outlook" on:click|preventDefault={openOutlook}>
+                open in <strong>Outlook</strong>
+            </a>
+            <a href="#yahoo" on:click|preventDefault={openYahoo}>
+                open in <strong>Yahoo Mail</strong>
+            </a>
+            <a href="#default" on:click|preventDefault={openDefault}>
+                <strong>open</strong> default
+            </a>
+            <a href="#copy" on:click|preventDefault={copy}>
+                <strong>{copied ? 'copied' : 'copy'}</strong>
+            </a>
         </section>
 
         <footer>
@@ -190,6 +200,10 @@
 <style>
     h4, p {
         text-align: center;
+    }
+
+    a > strong {
+        font-weight: 500;
     }
 
     section {
