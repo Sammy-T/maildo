@@ -54,7 +54,7 @@
             padding: var(--maildo-modal-spacing-v) var(--maildo-modal-spacing-h);
             border-radius: var(--maildo-border-radius);
             background-color: var(--maildo-modal-bg-color);
-            box-shadow: 0.15rem 0.2rem 0.2rem 0.05rem #0a0a0aa3;
+            box-shadow: 0.15rem 0.2rem 0.7rem 0.05rem #0a0a0aa3;
 
             & footer {
                 margin-left: calc(var(--maildo-modal-spacing-h) * -1);
