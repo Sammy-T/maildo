@@ -210,8 +210,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: calc(var(--maildo-spacing) * 0.5);
-        padding: calc(var(--maildo-spacing) * 0.25) calc(var(--maildo-spacing) * 1.5);
+        padding: calc(var(--maildo-spacing) * 0.25) 0;
     }
 
     footer {
