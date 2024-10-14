@@ -2,6 +2,8 @@
 
 #maildo-app {
     --maildo-spacing: 1rem;
+    --maildo-modal-spacing-v: var(--maildo-spacing);
+    --maildo-modal-spacing-h: calc(var(--maildo-spacing) * 2);
     --maildo-border-radius: 0.6rem;
 
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -45,15 +47,15 @@
             max-height: 90vh;
             width: auto;
             overflow: auto;
-            padding: var(--maildo-spacing);
+            padding: var(--maildo-modal-spacing-v) var(--maildo-modal-spacing-h);
             border-radius: var(--maildo-border-radius);
             background-color: #181c25;
             box-shadow: 0.15rem 0.2rem 0.2rem 0.05rem #0a0a0aa3;
 
             & footer {
-                margin-left: calc(var(--maildo-spacing) * -1);
-                margin-right: calc(var(--maildo-spacing) * -1);
-                margin-bottom: calc(var(--maildo-spacing) * -1);
+                margin-left: calc(var(--maildo-modal-spacing-h) * -1);
+                margin-right: calc(var(--maildo-modal-spacing-h) * -1);
+                margin-bottom: calc(var(--maildo-modal-spacing-v) * -1);
                 border-bottom-left-radius: var(--maildo-border-radius);
                 border-bottom-right-radius: var(--maildo-border-radius);
                 background-color: #50505014;
