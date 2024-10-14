@@ -11,7 +11,7 @@
     --maildo-modal-bg-color: light-dark(#fff, #181c25);
     --maildo-color: light-dark(#5b5d62, #c2c7d0);
     --maildo-link-color: #646cff;
-    --maildo-link-hover-color: light-dark(#62659f, #7c82f6);
+    --maildo-link-hover-color: light-dark(#62659f, #8a8ff8);
 
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
@@ -68,17 +68,44 @@
 
         & section {
             margin-bottom: calc(var(--maildo-spacing) * 0.5);
-        }
 
-        & section a {
-            width: 100%;
-            padding: calc(var(--maildo-spacing) * 0.5);
-            border-radius: 1rem;
-            text-align: center;
-        }
-    
-        & section a:hover {
-            background-color: #535bf214;
+            & a {
+                width: 100%;
+                padding: calc(var(--maildo-spacing) * 0.5);
+                border-radius: 1rem;
+                text-align: center;
+            }
+
+            & a:hover {
+                background-color: #535bf20b;
+            }
+
+            & a[href="#gmail"] {
+                color: #d47171;
+            }
+
+            & a[href="#gmail"]:hover {
+                color: light-dark(#c46363 ,#f18888);
+                background-color: #d471710f;
+            }
+
+            & a[href="#outlook"] {
+                color: #5fb3f8;
+            }
+
+            & a[href="#outlook"]:hover {
+                color: light-dark(#539cd7, #7fc3fb);
+                background-color: #5fb3f80f;
+            }
+
+            & a[href="#yahoo"] {
+                color: #c069f3;
+            }
+
+            & a[href="#yahoo"]:hover {
+                color: light-dark(#ab58db, #cf87f9);
+                background-color: #c069f30f;
+            }
         }
 
         & footer {
