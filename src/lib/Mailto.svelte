@@ -152,7 +152,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog open on:click|self={close}>
     <article>
-        <h6>{address}</h6>
+        <h4>{address}</h4>
         <p>
             <small>
                 {#if cc}
@@ -188,12 +188,7 @@
 </dialog>
 
 <style>
-    article {
-        width: unset;
-        border-radius: calc(var(--pico-border-radius) * 2);
-    }
-
-    h6, p {
+    h4, p {
         text-align: center;
     }
 
@@ -201,8 +196,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: calc(var(--pico-spacing) * 0.5);
-        padding: calc(var(--pico-block-spacing-vertical) * 0.25) calc(var(--pico-block-spacing-horizontal) * 1.5);
+        gap: calc(var(--maildo-spacing) * 0.5);
+        padding: calc(var(--maildo-spacing) * 0.25) calc(var(--maildo-spacing) * 1.5);
     }
 
     footer {

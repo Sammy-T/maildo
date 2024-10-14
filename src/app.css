@@ -1,1 +1,71 @@
-@import '@picocss/pico/css/pico.min.css';
+/* @import '@picocss/pico/css/pico.min.css'; */
+
+#maildo-app {
+    --maildo-spacing: 1rem;
+    --maildo-border-radius: 0.6rem;
+
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        margin-bottom: var(--maildo-spacing);
+    }
+
+    a {
+        /* font-weight: 500; */
+        color: #646cff;
+        text-decoration: inherit;
+    }
+
+    a:hover {
+        color: #535bf2;
+    }
+
+    & dialog {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #08090abf;
+        color: #c2c7d0;
+        backdrop-filter: blur(0.05rem);
+        -webkit-backdrop-filter: blur(0.05rem);
+        z-index: 999;
+
+        & article {
+            max-width: 75vw;
+            max-height: 90vh;
+            width: auto;
+            overflow: auto;
+            padding: var(--maildo-spacing);
+            border-radius: var(--maildo-border-radius);
+            background-color: #181c25;
+            box-shadow: 0.15rem 0.2rem 0.2rem 0.05rem #0a0a0aa3;
+
+            & footer {
+                margin-left: calc(var(--maildo-spacing) * -1);
+                margin-right: calc(var(--maildo-spacing) * -1);
+                margin-bottom: calc(var(--maildo-spacing) * -1);
+                border-bottom-left-radius: var(--maildo-border-radius);
+                border-bottom-right-radius: var(--maildo-border-radius);
+                background-color: #50505014;
+            }
+        }
+
+        & section {
+            margin-bottom: var(--maildo-spacing);
+        }
+
+        & footer {
+            padding: var(--maildo-spacing);
+        }
+    }
+}
