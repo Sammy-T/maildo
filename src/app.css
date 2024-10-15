@@ -118,6 +118,24 @@
                 color: light-dark(#ab58db, #cf87f9);
                 background-color: #c069f30f;
             }
+
+            & a[href="#whatsapp"] {
+                color: #36bc96;
+            }
+
+            & a[href="#whatsapp"]:hover {
+                color: light-dark(#2aa280, #42d9ae);
+                background-color: #36bc960f;
+            }
+
+            & a[href="#skype"] {
+                color: #38b0d1;
+            }
+
+            & a[href="#skype"]:hover {
+                color: light-dark(#2f94b0, #41bddf);
+                background-color: #38b0d10f;
+            }
         }
 
         & footer {
