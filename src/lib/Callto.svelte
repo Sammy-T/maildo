@@ -62,7 +62,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog open on:click|self={close}>
     <article>
-        <h4>1234567890</h4>
+        <h4>{phoneNum}</h4>
 
         <section>
             <a href="#whatsapp" on:click|preventDefault>
@@ -71,10 +71,10 @@
             <a href="#skype" on:click|preventDefault>
                 open in <strong>Skype</strong>
             </a>
-            <a href="#default" on:click|preventDefault>
+            <a href={`tel:${phoneNum}`}>
                 <strong>call</strong> as default
             </a>
-            <a href="#sms" on:click|preventDefault>
+            <a href={`sms:${phoneNum}`}>
                 <strong>text</strong> as default
             </a>
             <a href="#copy" on:click|preventDefault={copy}>

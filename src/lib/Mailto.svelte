@@ -15,6 +15,8 @@
     let subject = '';
     let body = '';
 
+    let mailtoUrl = '';
+
     let copied = false;
 
     /**
@@ -113,14 +115,6 @@
         close();
     }
 
-    function openDefault() {
-        const mailtoUrl = getMailtoUrl();
-
-        window.open(mailtoUrl.toString(), '_self');
-
-        close();
-    }
-
     async function copy() {
         try {
             await navigator.clipboard.writeText(address);
@@ -145,6 +139,8 @@
             type = TYPE_DATA;
             parseData();
         }
+        
+        mailtoUrl = getMailtoUrl();
     });
 </script>
 
@@ -183,7 +179,7 @@
             <a href="#yahoo" on:click|preventDefault={openYahoo}>
                 open in <strong>Yahoo Mail</strong>
             </a>
-            <a href="#default" on:click|preventDefault={openDefault}>
+            <a href={mailtoUrl}>
                 <strong>open</strong> default
             </a>
             <a href="#copy" on:click|preventDefault={copy}>
