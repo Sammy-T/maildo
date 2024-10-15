@@ -1,12 +1,25 @@
 {
   "name": "maildo",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Mailto links extended.",
+  "keywords": [],
+  "author": "Sammy-T",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sammy-T/maildo.git"
+  },
+  "main": "index.js",
   "type": "module",
+  "files": [
+    "dist/**.js",
+    "dist/**.css"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "vite build"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
