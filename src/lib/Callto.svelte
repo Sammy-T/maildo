@@ -4,7 +4,7 @@
     const TYPE_URL = 'type-url';
     const TYPE_DATA = 'type-data';
 
-    const phoneUrlRe = /^(tel:)|(callto:)/;
+    const phoneUrlRe = /^(tel:)|^(callto:)/;
 
     /** @type {import('svelte/store').Writable<HTMLAnchorElement>} */
     const selectedCallto = getContext('selectedCallto');
