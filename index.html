@@ -16,37 +16,68 @@
     <main style="padding: 1rem;">
       <h1>Maildo</h1>
       
-      <a href="mailto:maildo@example.com">
-        mailto:maildo@example.com
-      </a><br>
-      <a href="mailto:maildo@example.com?subject=hello%20world&body=bonjour monde">
-        mailto:maildo@example.com?subject=Hello%20World&body=bonjour monde
-      </a><br>
-      <a href="mailto:maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com">
-        mailto:maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com
-      </a><br>
+      <section>
+        <h2>Mailto</h2>
 
-      <hr>
+        <a href="mailto:maildo@example.com">
+          mailto:maildo@example.com
+        </a><br>
+        <a href="mailto:maildo@example.com?subject=hello%20world&body=bonjour monde">
+          mailto:maildo@example.com?subject=Hello%20World&body=bonjour monde
+        </a><br>
+        <a href="mailto:maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com">
+          mailto:maildo@example.com?cc=maildo2@example.com, maildo3@example.com&bcc=maildo4@example.com
+        </a><br>
+  
+        <hr>
+  
+        <a href="#maildo" data-address="maildo" data-domain="example.com">
+          maildo@example.com
+        </a><br>
+        <a href="#maildo" 
+          data-address="maildo" data-domain="example.com" 
+          data-cc-address="maildo2" data-cc-domain="example.com"
+          data-bcc-address="maildo3" data-bcc-domain="example.com"
+          data-subject="Hello World" data-body="Bonjour Monde.">
+          maildo@example.com
+        </a><br>
+        <a class="maildo" href="" data-address="maildo" data-domain="example.com">
+          maildo@example.com
+        </a><br>
+  
+        <hr>
+  
+        <a class="no-maildo" href="mailto:maildo@example.com">
+          exclude mailto:maildo@example.com
+        </a><br>
+      </section>
 
-      <a href="#maildo" data-address="maildo" data-domain="example.com">
-        maildo@example.com
-      </a><br>
-      <a href="#maildo" 
-        data-address="maildo" data-domain="example.com" 
-        data-cc-address="maildo2" data-cc-domain="example.com"
-        data-bcc-address="maildo3" data-bcc-domain="example.com"
-        data-subject="Hello World" data-body="Bonjour Monde.">
-        maildo@example.com
-      </a><br>
-      <a class="maildo" href="" data-address="maildo" data-domain="example.com">
-        maildo@example.com
-      </a><br>
+      <section>
+        <h2>Tel</h2>
 
-      <hr>
+        <a href="tel:1234567890">
+          tel:1234567890
+        </a><br>
 
-      <a class="no-maildo" href="mailto:maildo@example.com">
-        exclude mailto:maildo@example.com
-      </a><br>
+        <a href="callto:1234567890">
+          callto:1234567890
+        </a><br>
+
+        <hr>
+
+        <a href="#maildo" data-tel="1234567890">
+          1234567890
+        </a><br>
+        <a class="maildo" href="" data-tel="1234567890">
+          1234567890
+        </a><br>
+
+        <hr>
+
+        <a class="no-maildo" href="tel:1234567890">
+          exclude tel:1234567890
+        </a>
+      </section>
     </main>
   </body>
 </html>
