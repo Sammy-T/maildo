@@ -43,6 +43,14 @@
         close();
     }
 
+    function openSkype() {
+        const skypeUrl = `skype:${encodeURIComponent(phoneNum)}`;
+        
+        window.open(skypeUrl, '_blank', 'noopener, noreferrer');
+
+        close();
+    }
+
     async function copy() {
         try {
             await navigator.clipboard.writeText(phoneNum);
@@ -80,7 +88,7 @@
             <a href="#whatsapp" on:click|preventDefault={openWhatsapp}>
                 open in <strong>WhatsApp</strong>
             </a>
-            <a href="#skype" on:click|preventDefault>
+            <a href="#skype" on:click|preventDefault={openSkype}>
                 open in <strong>Skype</strong>
             </a>
             <a href={`tel:${phoneNum}`}>
