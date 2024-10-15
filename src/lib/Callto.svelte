@@ -31,6 +31,18 @@
         phoneNum = dataset.tel;
     }
 
+    function openWhatsapp() {
+        // Remove non-digits and leading zeroes
+        // https://faq.whatsapp.com/5913398998672934/
+        const whatsappTel = phoneNum.replaceAll(/\D/g, '').replace(/^0+/, '');
+        
+        const whatsappUrl = `https://wa.me/${whatsappTel}`;
+        
+        window.open(whatsappUrl, '_blank', 'noopener, noreferrer');
+
+        close();
+    }
+
     async function copy() {
         try {
             await navigator.clipboard.writeText(phoneNum);
@@ -65,7 +77,7 @@
         <h4>{phoneNum}</h4>
 
         <section>
-            <a href="#whatsapp" on:click|preventDefault>
+            <a href="#whatsapp" on:click|preventDefault={openWhatsapp}>
                 open in <strong>WhatsApp</strong>
             </a>
             <a href="#skype" on:click|preventDefault>
