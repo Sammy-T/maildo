@@ -1,5 +1,4 @@
 #maildo-app {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color-scheme: light dark;
 
     --maildo-spacing: 1rem;
@@ -11,9 +10,27 @@
     --maildo-link-color: #646cff;
     --maildo-link-hover-color: light-dark(#62659f, #8a8ff8);
 
+    * {
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-size: revert;
+        font-weight: revert;
+        line-height: revert;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+        color: var(--maildo-color);
+    }
+
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
         margin-bottom: var(--maildo-spacing);
+    }
+
+    p {
+        margin: 1rem 0;
     }
 
     a {
@@ -40,7 +57,6 @@
         align-items: center;
         justify-content: center;
         background-color: #08090abf;
-        color: var(--maildo-color);
         backdrop-filter: blur(0.05rem);
         -webkit-backdrop-filter: blur(0.05rem);
         z-index: 999;
