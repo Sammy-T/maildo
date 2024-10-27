@@ -11,9 +11,9 @@
 
     let type = '';
 
-    let phoneNum = '';
+    let phoneNum = $state('');
 
-    let copied = false;
+    let copied = $state(false);
 
     /**
      * Parses the phone number data from the tel or callto url.
@@ -98,8 +98,8 @@
     });
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <dialog open onclick={close}>
     <article>
         <h4>{phoneNum}</h4>

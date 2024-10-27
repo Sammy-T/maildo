@@ -9,15 +9,15 @@
 
     let type = '';
 
-    let address = '';
-    let cc = '';
-    let bcc = '';
-    let subject = '';
-    let body = '';
+    let address = $state('');
+    let cc = $state('');
+    let bcc = $state('');
+    let subject = $state('');
+    let body = $state('');
 
-    let mailtoUrl = '';
+    let mailtoUrl = $state('');
 
-    let copied = false;
+    let copied = $state(false);
 
     /**
      * Parses the email data from the mailto url.
