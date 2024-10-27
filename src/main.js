@@ -1,9 +1,9 @@
 import './app.css';
+import { mount } from 'svelte';
 import App from './App.svelte';
 
 const APP_ID = 'maildo-app';
 
-/** @type {App} */
 let app;
 
 function init() {
@@ -19,7 +19,7 @@ function init() {
         return;
     }
 
-    app = new App({
+    app = mount(App, {
         target: targetEl
     });
 }
