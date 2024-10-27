@@ -7,6 +7,10 @@
     const MAILTO_SELECTORS = 'a[href^="mailto:"]:not(.no-maildo), a[href="#maildo"][data-address], a.maildo[data-address]';
     const CALLTO_SELECTORS = 'a[href^="tel:"]:not(.no-maildo), a[href^="callto:"]:not(.no-maildo), a[href="#maildo"][data-tel], a.maildo[data-tel]';
 
+
+    // I would've converted these stores to reactive states
+    // if it didn't thoroughly break my implementation.
+
     /** @type {import('svelte/store').Writable<HTMLAnchorElement>} */
     const selectedMailto = writable(null);
     setContext('selectedMailto', selectedMailto);

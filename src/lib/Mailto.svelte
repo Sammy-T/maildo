@@ -75,7 +75,12 @@
         }
     }
 
-    function openGmail() {
+    /**
+     * @param {Event} event
+     */
+    function openGmail(event) {
+        event.preventDefault();
+
         const mailtoUrl = getMailtoUrl();
 
         const gmailUrl = 'https://mail.google.com/mail/?extsrc=mailto&url=' + encodeURIComponent(mailtoUrl);
@@ -85,7 +90,12 @@
         close();
     }
 
-    function openOutlook() {
+    /**
+     * @param {Event} event
+     */
+    function openOutlook(event) {
+        event.preventDefault();
+
         const params = new URLSearchParams();
         params.set('path', '/mail/action/compose');
 
@@ -101,7 +111,12 @@
         close();
     }
 
-    function openYahoo() {
+    /**
+     * @param {Event} event
+     */
+    function openYahoo(event) {
+        event.preventDefault();
+
         const params = new URLSearchParams();
         if(address) params.set('to', address);
         if(subject) params.set('subject', subject);
@@ -115,7 +130,12 @@
         close();
     }
 
-    async function copy() {
+    /**
+     * @param {Event} event
+     */
+    async function copy(event) {
+        event.preventDefault();
+        
         try {
             await navigator.clipboard.writeText(address);
 
@@ -127,7 +147,12 @@
         }
     }
  
-    function close() {
+    /**
+     * @param {Event} event
+     */
+    function close(event = null) {
+        if(event && event.currentTarget !== event.target) return;
+
         $selectedMailto = null;
     }
 
@@ -146,7 +171,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<dialog open on:click|self={close}>
+<dialog open onclick={close}>
     <article>
         <h4>{address}</h4>
         <p>
@@ -170,19 +195,19 @@
         </p>
 
         <section>
-            <a href="#gmail" on:click|preventDefault={openGmail}>
+            <a href="#gmail" onclick={openGmail}>
                 open in <strong>Gmail</strong>
             </a>
-            <a href="#outlook" on:click|preventDefault={openOutlook}>
+            <a href="#outlook" onclick={openOutlook}>
                 open in <strong>Outlook</strong>
             </a>
-            <a href="#yahoo" on:click|preventDefault={openYahoo}>
+            <a href="#yahoo" onclick={openYahoo}>
                 open in <strong>Yahoo Mail</strong>
             </a>
             <a href={mailtoUrl}>
                 <strong>open</strong> default
             </a>
-            <a href="#copy" on:click|preventDefault={copy}>
+            <a href="#copy" onclick={copy}>
                 <strong>{copied ? 'copied' : 'copy'}</strong>
             </a>
         </section>

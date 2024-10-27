@@ -31,7 +31,12 @@
         phoneNum = dataset.tel;
     }
 
-    function openWhatsapp() {
+    /**
+     * @param {Event} event
+     */
+    function openWhatsapp(event) {
+        event.preventDefault();
+        
         // Remove non-digits and leading zeroes
         // https://faq.whatsapp.com/5913398998672934/
         const whatsappTel = phoneNum.replaceAll(/\D/g, '').replace(/^0+/, '');
@@ -43,7 +48,12 @@
         close();
     }
 
-    function openSkype() {
+    /**
+     * @param {Event} event
+     */
+    function openSkype(event) {
+        event.preventDefault();
+
         const skypeUrl = `skype:${encodeURIComponent(phoneNum)}`;
         
         window.open(skypeUrl, '_blank', 'noopener, noreferrer');
@@ -51,7 +61,12 @@
         close();
     }
 
-    async function copy() {
+    /**
+     * @param {Event} event
+     */
+    async function copy(event) {
+        event.preventDefault();
+
         try {
             await navigator.clipboard.writeText(phoneNum);
 
@@ -63,7 +78,12 @@
         }
     }
 
-    function close() {
+    /**
+     * @param {Event} event
+     */
+    function close(event = null) {
+        if(event && event.currentTarget !== event.target) return;
+
         $selectedCallto = null;
     }
 
@@ -80,15 +100,15 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<dialog open on:click|self={close}>
+<dialog open onclick={close}>
     <article>
         <h4>{phoneNum}</h4>
 
         <section>
-            <a href="#whatsapp" on:click|preventDefault={openWhatsapp}>
+            <a href="#whatsapp" onclick={openWhatsapp}>
                 open in <strong>WhatsApp</strong>
             </a>
-            <a href="#skype" on:click|preventDefault={openSkype}>
+            <a href="#skype" onclick={openSkype}>
                 open in <strong>Skype</strong>
             </a>
             <a href={`tel:${phoneNum}`}>
@@ -97,7 +117,7 @@
             <a href={`sms:${phoneNum}`}>
                 <strong>text</strong> as default
             </a>
-            <a href="#copy" on:click|preventDefault={copy}>
+            <a href="#copy" onclick={copy}>
                 <strong>{copied ? 'copied' : 'copy'}</strong>
             </a>
         </section>
