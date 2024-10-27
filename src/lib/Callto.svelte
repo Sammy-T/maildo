@@ -1,15 +1,10 @@
 <script>
     import { getContext, onMount } from 'svelte';
 
-    const TYPE_URL = 'type-url';
-    const TYPE_DATA = 'type-data';
-
     const phoneUrlRe = /^(tel:)|^(callto:)/;
 
     /** @type {import('svelte/store').Writable<HTMLAnchorElement>} */
     const selectedCallto = getContext('selectedCallto');
-
-    let type = '';
 
     let phoneNum = $state('');
 
@@ -89,10 +84,8 @@
 
     onMount(() => {
         if(phoneUrlRe.test($selectedCallto.href)) {
-            type = TYPE_URL;
             parseUrl();
         } else {
-            type = TYPE_DATA;
             parseData();
         }
     });
