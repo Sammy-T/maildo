@@ -22,9 +22,9 @@
     "prepublishOnly": "vite build"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^5.0.1",
-    "svelte": "^5.1.3",
-    "vite": "^6.0.1"
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.25.3",
+    "vite": "^6.2.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
