@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [svelte()],
   build: {
     emptyOutDir: true,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         entryFileNames: '[name].js',
         assetFileNames: '[name][extname]',
