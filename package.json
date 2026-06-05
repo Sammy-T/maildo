@@ -25,10 +25,5 @@
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "svelte": "^5.55.3",
     "vite": "^8.0.8"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   }
 }
